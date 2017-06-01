@@ -1,4 +1,3 @@
-//var squareId = 0;
 function isEven (number) {
     if (number % 2 === 0) {
         return true;
@@ -40,12 +39,24 @@ document.addEventListener('DOMContentLoaded', function(){
         });
 
         newSquare.addEventListener('dblclick', function(){
+            var getSquares = document.getElementsByClassName('square');
+
             if (isEven(newSquare.id)) {
-                alert('even');
-                console.log(newSquare.id);
+                var rightSquare = Number(newSquare.id) + 1;
+                
+                if(getSquares[rightSquare] !== undefined) {
+                    getSquares[rightSquare].remove();
+                } else {
+                    alert('There is not a square to the right of this one');
+                }    
             } else {
-                alert('odd');
-                console.log(newSquare.id);
+                var leftSquare = Number(newSquare.id) - 1;
+
+                if(getSquares[leftSquare] !== undefined) {
+                    getSquares[leftSquare].remove();
+                } else {
+                    alert('There is not a square to the left of this one');
+                }
             }
         });
 
