@@ -41,7 +41,8 @@ document.addEventListener('DOMContentLoaded', function(){
         newSquare.addEventListener('dblclick', function(){
             var getSquares = document.getElementsByClassName('square');
 
-            if (isEven(newSquare.id)) {
+            //"Original Attempt"
+            /*if (isEven(newSquare.id)) {
                 var rightSquare = Number(newSquare.id) + 1;
                 
                 if(getSquares[rightSquare] !== undefined) {
@@ -56,6 +57,24 @@ document.addEventListener('DOMContentLoaded', function(){
                     getSquares[leftSquare].remove();
                 } else {
                     alert('There is not a square to the left of this one');
+                }
+            }*/
+
+            if (isEven(newSquare.id)) {
+                var rightSquare = Number(newSquare.id) + 1;
+                
+                if(rightSquare > getSquares.length) {
+                    alert('There is not a square to the right of this one');
+                } else {
+                    getSquares[rightSquare].remove();
+                }    
+            } else {
+                var leftSquare = Number(newSquare.id) - 1;
+
+                if(leftSquare < 0) {
+                    alert('There is not a square to the left of this one');
+                } else {
+                    getSquares[leftSquare].remove();
                 }
             }
         });
