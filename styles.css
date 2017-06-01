@@ -1,0 +1,17 @@
+button {
+    clear: both;
+    /* Button was moving to the right with every square added.
+       Almost as if they both had float, and the squares were
+       being added in front of the button.
+       Due to appendChild? Or is button an inline element?
+       Setting display to block for the time being. */
+    display: block;
+}
+
+.square {
+    width: 10em;
+    height: 10em;
+    float: left;
+    margin: 2em;
+    background-color: black;
+}
